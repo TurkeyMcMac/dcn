@@ -3,7 +3,7 @@ package jude.dcn;
 final class StringCapsule extends PrimitiveCapsule {
 
 	public StringCapsule() {
-		super('"', '"');
+		super('"', '"', null);
 	}
 
 	@Override

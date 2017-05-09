@@ -7,18 +7,30 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public final class Dcn {
 	
 	private static Map<String, Capsule> capsuleNames = new HashMap<>();
 	
+	//Instantiate capsule types
+	static {
+		new BooleanCapsule();
+		new CharacterCapsule();
+		new HashCapsule();
+		new IntegerCapsule();
+		new ListCapsule();
+		new StringCapsule();
+	}
+	
 	static {
 		List<Capsule> capsules = Capsule.capsules;
 		for (Capsule c : capsules) {
-			String capsuleName = c.getClass().getSimpleName().toLowerCase();
-			capsuleNames.put(capsuleName.substring(0, capsuleName.length() - 7), c);
+			capsuleNames.put(c.SELECTOR, c);
 		}
 	}
+	
+	public static final Set<String> SELECTORS = capsuleNames.keySet();
 	
 	public static Object construct(String capsule, String textStruct) {
 		Capsule structure = capsuleNames.get(textStruct.toLowerCase());
@@ -38,10 +50,6 @@ public final class Dcn {
 			e.printStackTrace();
 		}
 		return construct(capsule, fileStruct);
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(constructFromFile("/test", "hash"));
 	}
 	
 }

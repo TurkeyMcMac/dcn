@@ -3,7 +3,7 @@ package jude.dcn;
 final class IntegerCapsule extends PrimitiveCapsule {
 
 	protected IntegerCapsule() {
-		super('#', '#');
+		super('#', '#', null);
 	}
 
 	@Override

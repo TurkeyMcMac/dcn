@@ -2,8 +2,8 @@ package jude.dcn;
 
 abstract class PrimitiveCapsule extends Capsule {
 
-	protected PrimitiveCapsule(char start, char finish) {
-		super(start, finish);
+	protected PrimitiveCapsule(char start, char finish, String selector) {
+		super(start, finish, selector);
 	}
 	
 	protected abstract Object parseContents(String contents);

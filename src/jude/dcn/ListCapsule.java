@@ -1,13 +1,15 @@
 package jude.dcn;
 
+import java.util.List;
+
 final class ListCapsule extends CollectiveCapsule {
 
 	protected ListCapsule() {
-		super('[', ']');
+		super('[', ']', null);
 	}
 	
-	protected ValueEnd evaluate(String capsule) {
-	    return listValues(capsule);
+	protected ValueEnd processList(List<Object> valueList, int terminator) {
+	    return new ValueEnd(valueList, terminator);
 	}
 	
 }

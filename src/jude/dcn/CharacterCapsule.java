@@ -3,7 +3,7 @@ package jude.dcn;
 final class CharacterCapsule extends PrimitiveCapsule {
 
 	protected CharacterCapsule() {
-		super('\'', '\'');
+		super('\'', '\'', null);
 	}
 
 	@Override

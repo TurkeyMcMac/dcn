@@ -5,11 +5,11 @@ import java.util.List;
 
 abstract class CollectiveCapsule extends Capsule {
 	
-	protected CollectiveCapsule(char start, char finish) {
-		super(start, finish);
+	protected CollectiveCapsule(char start, char finish, String selector) {
+		super(start, finish, selector);
 	}
 	
-	protected ValueEnd listValues(String capsule) {
+	protected final ValueEnd evaluate(String capsule) {
 		//list of processed values, to be filled
 	    List<Object> valueList = new ArrayList<>();
 	    //the position of the end of the capsule, to be determined
@@ -31,7 +31,9 @@ abstract class CollectiveCapsule extends Capsule {
 	        	break;
 	        }
 	    }
-	    return new ValueEnd(valueList, terminator);
+	    return processList(valueList, terminator);
 	}
+	
+	protected abstract ValueEnd processList(List<Object> valueList, int terminator);
 	
 }

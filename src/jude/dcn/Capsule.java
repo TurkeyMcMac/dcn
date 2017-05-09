@@ -9,10 +9,17 @@ abstract class Capsule {
 
 	final char START;
 	final char FINISH;
+	final String SELECTOR;
 	
-	protected Capsule(char start, char finish) {
+	protected Capsule(char start, char finish, String selector) {
 		START = start;
 		FINISH = finish;
+		if (selector == null) {
+			String capsuleName = getClass().getSimpleName().toLowerCase();
+			SELECTOR = capsuleName.substring(0, capsuleName.length() - 7);
+		} else {
+			SELECTOR = selector;
+		}
 		capsuleBorders.put(start, finish);
 		capsuleStarts.put(start, this);
 		capsules.add(this);
@@ -22,15 +29,7 @@ abstract class Capsule {
 	protected static Map<Character, Capsule> capsuleStarts = new HashMap<>();
 	static List<Capsule>  capsules = new ArrayList<Capsule>();
 	
-	//Instantiate capsule types
-	static {
-		new BooleanCapsule();
-		new CharacterCapsule();
-		new HashCapsule();
-		new IntegerCapsule();
-		new ListCapsule();
-		new StringCapsule();
-	}
+	
 	
 	protected abstract ValueEnd evaluate(String capsule);
 	

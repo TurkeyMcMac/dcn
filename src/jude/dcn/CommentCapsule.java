@@ -2,8 +2,8 @@ package jude.dcn;
 
 final class CommentCapsule extends Capsule {
 
-	public CommentCapsule(char start, char finish) {
-		super('`', '`');
+	public CommentCapsule() {
+		super('`', '`', null);
 	}
 
 	@Override

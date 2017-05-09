@@ -7,13 +7,11 @@ import java.util.HashMap;
 final class HashCapsule extends CollectiveCapsule {
 
 	public HashCapsule() {
-		super('{', '}');
+		super('{', '}', null);
 	}
 
 	@Override
-	protected ValueEnd evaluate(String capsule) {
-		ValueEnd values = listValues(capsule);
-		List<Object> valueList = (List<Object>)values.value;
+	protected ValueEnd processList(List<Object> valueList, int terminator) {
 		int valueNumber = valueList.size();
 		if (valueNumber % 2 != 0) {
 			throw new RuntimeException("key \"" + valueList.get(valueNumber - 1) + "\" does not have a corresponding value.");
@@ -28,8 +26,7 @@ final class HashCapsule extends CollectiveCapsule {
 				hash.put(key, currentValue);
 			}
 		}
-		values.value = hash;
-		return values;
+		return new ValueEnd(hash, terminator);
 	}
 
 }

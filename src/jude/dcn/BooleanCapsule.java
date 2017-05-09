@@ -3,7 +3,7 @@ package jude.dcn;
 final class BooleanCapsule extends PrimitiveCapsule {
 
 	protected BooleanCapsule() {
-		super(';', ';');
+		super(';', ';', null);
 	}
 
 	@Override
