@@ -3,47 +3,38 @@ package jude.dcn;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 
 abstract class Capsule {
 
-	public final char START;
-	public final char FINISH;
+	final char START;
+	final char FINISH;
 	
 	protected Capsule(char start, char finish) {
 		START = start;
 		FINISH = finish;
 		capsuleBorders.put(start, finish);
-		capsules.put(start, this);
+		capsuleStarts.put(start, this);
+		capsules.add(this);
 	}
 	
 	protected static Map<Character, Character> capsuleBorders = new HashMap<>();
-	protected static Map<Character, Capsule> capsules = new HashMap<>();
+	protected static Map<Character, Capsule> capsuleStarts = new HashMap<>();
+	static List<Capsule>  capsules = new ArrayList<Capsule>();
 	
+	//Instantiate capsule types
 	static {
-		new ListCapsule();
-		new HashCapsule();
-		new CharacterCapsule();
 		new BooleanCapsule();
+		new CharacterCapsule();
+		new HashCapsule();
 		new IntegerCapsule();
+		new ListCapsule();
+		new StringCapsule();
 	}
 	
 	protected abstract ValueEnd evaluate(String capsule);
 	
-	private static Object read(String capsule) {
-		Character firstChar = null;
-		int firstCharPosition = 0;
-		for (int i = 0; i < capsule.length(); i++) {
-			char currentChar = capsule.charAt(i);
-			if (!Character.toString(currentChar).matches("\\s")) {
-				firstChar = currentChar;
-				firstCharPosition = i;
-				break;
-			}
-		}
-		return capsules.get(firstChar).evaluate(capsule.substring(firstCharPosition + 1, capsule.length())).value;
-	}
-	
-	//a data structure containing the evaluated contents of a capsule and where in a string it ends
+	//a data structure containing the evaluated contents of a capsule and where in the string it ends
 	protected class ValueEnd {
 	    
 	    Object value;
@@ -54,10 +45,6 @@ abstract class Capsule {
 	        this.terminator = terminator + 1;
 	    }
 	    
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(read("{}"));
 	}
 	
 }

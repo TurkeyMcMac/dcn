@@ -18,11 +18,13 @@ abstract class CollectiveCapsule extends Capsule {
 	    for (int i = 0; i < capsule.length(); i++) {
 	        char currentChar = capsule.charAt(i);
 	        //check if currentChar is the beginning of a sub-capsule
-	        Capsule subCapsule = capsules.get(currentChar);
+	        Capsule subCapsule = capsuleStarts.get(currentChar);
 	        if (subCapsule != null) {
 	            //pass sub-capsule string to sub-capsule
-	            ValueEnd subValue = subCapsule.evaluate(capsule.substring(i + 1, capsule.length()));
-	            valueList.add(subValue.value);
+	            ValueEnd subValue = subCapsule.evaluate(capsule.substring(i + 1));
+	            if (!(subCapsule instanceof CommentCapsule)) {
+	            	valueList.add(subValue.value);
+	            }
 	            i += subValue.terminator;
 	        } else if (currentChar == capsuleBorders.get(START)) {
 	        	terminator = i;

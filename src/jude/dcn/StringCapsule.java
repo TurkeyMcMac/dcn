@@ -2,7 +2,7 @@ package jude.dcn;
 
 final class StringCapsule extends PrimitiveCapsule {
 
-	public StringCapsule(char start, char finish) {
+	public StringCapsule() {
 		super('"', '"');
 	}
 
