@@ -1,13 +1,14 @@
 package jude.dcn;
 
-final class IntegerCapsule extends Capsule {
+final class IntegerCapsule extends PrimitiveCapsule {
 
 	protected IntegerCapsule() {
-		super('(', ')');
+		super('#', '#');
 	}
-	
-	public Integer detect(String capsule) {
-		return Integer.parseInt(findContents(capsule));
+
+	@Override
+	protected Object parseContents(String contents) {
+		return Integer.parseInt(contents);
 	}
-	
+
 }

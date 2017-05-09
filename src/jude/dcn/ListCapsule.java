@@ -1,23 +1,13 @@
 package jude.dcn;
 
-import java.util.List;
-import java.util.ArrayList;
-
-final class ListCapsule extends StructuredCapsule {
+final class ListCapsule extends CollectiveCapsule {
 
 	protected ListCapsule() {
 		super('[', ']');
 	}
-
-	@Override
-	protected List<Object> processList(String[] contentList) {
-		List<Object> values = new ArrayList<>(contentList.length);
-		for (String s : contentList) {
-			values.add(Capsule.process(s));
-		}
-		return values;
-	}
-
 	
+	protected ValueEnd evaluate(String capsule) {
+	    return listValues(capsule);
+	}
 	
 }

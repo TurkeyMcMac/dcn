@@ -1,14 +1,14 @@
 package jude.dcn;
 
-final class BooleanCapsule extends Capsule {
+final class BooleanCapsule extends PrimitiveCapsule {
 
 	protected BooleanCapsule() {
-		super('<', '>');
+		super(';', ';');
 	}
 
 	@Override
-	public Boolean detect(String capsule) {
-		return Boolean.parseBoolean(findContents(capsule));
+	protected Object parseContents(String contents) {
+		return Boolean.valueOf(contents);
 	}
 
 }

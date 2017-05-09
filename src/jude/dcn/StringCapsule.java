@@ -1,14 +1,14 @@
 package jude.dcn;
 
-final class StringCapsule extends Capsule {
+final class StringCapsule extends PrimitiveCapsule {
 
-	protected StringCapsule() {
+	public StringCapsule(char start, char finish) {
 		super('"', '"');
 	}
 
 	@Override
-	public String detect(String capsule) {
-		return findContents(capsule);
+	protected Object parseContents(String contents) {
+		return contents;
 	}
 
 }
