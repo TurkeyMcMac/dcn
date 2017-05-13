@@ -18,6 +18,7 @@ public final class Capsules {
 		new HashCapsule();
 		new IntegerCapsule();
 		new ListCapsule();
+		new NullCapsule();
 		new StringCapsule();
 	}
 	
