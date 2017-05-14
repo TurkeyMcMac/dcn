@@ -2,7 +2,7 @@ package jwmh.dcn;
 
 abstract class EmptyCapsule extends Capsule<Object> {
 
-	public EmptyCapsule(char start, char finish, String selector) {
+	public EmptyCapsule(Character start, Character finish, String selector) {
 		super(start, finish, selector);
 	}
 

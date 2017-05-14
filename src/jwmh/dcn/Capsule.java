@@ -11,9 +11,13 @@ abstract class Capsule<T> {
 	final char FINISH;
 	final String SELECTOR;
 	
-	protected Capsule(char start, char finish, String selector) {
+	protected Capsule(Character start, Character finish, String selector) {
 		START = start;
-		FINISH = finish;
+		if (finish == null) {
+			FINISH = ';';
+		} else {
+			FINISH = finish;
+		}
 		if (selector == null) {
 			String capsuleName = getClass().getSimpleName().toLowerCase();
 			SELECTOR = capsuleName.substring(0, capsuleName.length() - 7);

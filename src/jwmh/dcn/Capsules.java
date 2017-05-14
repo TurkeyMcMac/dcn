@@ -38,10 +38,12 @@ public final class Capsules {
 		return capsule.evaluate(text + capsule.FINISH).value;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static Map<Object, Object> readHash(String text) {
 		return (Map<Object, Object>)read(text, "hash");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static List<Object> readList(String text) {
 		return (List<Object>)read(text, "list");
 	}
@@ -51,10 +53,12 @@ public final class Capsules {
 		return read(new String(encoded, StandardCharsets.UTF_8), capsuleId);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static Map<Object, Object> readHashFile(String path) throws IOException {
 		return (Map<Object, Object>)readFile(path, "hash");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static List<Object> readListFile(String path) throws IOException {
 		return (List<Object>)readFile(path, "list");
 	}

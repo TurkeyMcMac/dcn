@@ -5,10 +5,11 @@ import java.util.List;
 
 abstract class CollectiveCapsule<T> extends Capsule<T> {
 	
-	protected CollectiveCapsule(char start, char finish, String selector) {
+	protected CollectiveCapsule(Character start, Character finish, String selector) {
 		super(start, finish, selector);
 	}
 	
+	@SuppressWarnings("unchecked")
 	protected final ValueEnd evaluate(String capsule) {
 		//list of processed values, to be filled
 	    List<T> valueList = new ArrayList<>();

@@ -2,7 +2,7 @@ package jwmh.dcn;
 
 abstract class PrimitiveCapsule<T> extends Capsule<T> {
 
-	protected PrimitiveCapsule(char start, char finish, String selector) {
+	protected PrimitiveCapsule(Character start, Character finish, String selector) {
 		super(start, finish, selector);
 	}
 	
