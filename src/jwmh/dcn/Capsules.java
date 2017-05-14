@@ -15,6 +15,7 @@ public final class Capsules {
 	static {
 		new BooleanCapsule();
 		new CharacterCapsule();
+		new FloatCapsule();
 		new HashCapsule();
 		new IntegerCapsule();
 		new ListCapsule();
