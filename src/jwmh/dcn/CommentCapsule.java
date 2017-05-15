@@ -6,9 +6,4 @@ final class CommentCapsule extends EmptyCapsule {
 		super('`', '`', null);
 	}
 	
-	//instantiate capsule
-	static {
-		new CommentCapsule();
-	}
-	
 }

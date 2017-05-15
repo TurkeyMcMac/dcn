@@ -11,6 +11,19 @@ import java.util.Set;
 
 public final class Capsules {
 	
+	//Instantiate capsule types
+	static {
+		new BooleanCapsule();
+		new CharacterCapsule();
+		new CommentCapsule();
+		new FloatCapsule();
+		new HashCapsule();
+		new IntegerCapsule();
+		new ListCapsule();
+		new NullCapsule();
+		new StringCapsule();
+	}
+	
 	protected static Map<String, Capsule<?>> capsuleIds = new HashMap<>();
 	
 	static {
@@ -51,5 +64,8 @@ public final class Capsules {
 	public static List<Object> readListFile(String path) throws IOException {
 		return (List<Object>)readFile(path, "list");
 	}
+	
+	//for testing:
+	//public static void main(String[] args) {}
 	
 }

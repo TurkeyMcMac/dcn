@@ -10,11 +10,6 @@ final class HashCapsule extends CollectiveCapsule<Map<?, ?>> {
 		super('{', '}', null);
 	}
 	
-	//instantiate capsule
-	static {
-		new HashCapsule();
-	}
-	
 	@Override
 	protected ValueEnd processList(List<Object> valueList, int terminator) {
 		int valueNumber = valueList.size();

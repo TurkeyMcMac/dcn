@@ -6,13 +6,11 @@ final class CharacterCapsule extends PrimitiveCapsule<Character> {
 		super('\'', '\'', null);
 	}
 	
-	//instantiate capsule
-	static {
-		new CharacterCapsule();
-	}
-	
 	@Override
 	protected Character parseContents(String contents) {
+		if (contents.length() != 1) {
+			throw new IllegalArgumentException("character capsules must contain a single character");
+		}
 		return contents.charAt(0);
 	}
 
