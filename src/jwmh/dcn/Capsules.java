@@ -11,18 +11,6 @@ import java.util.Set;
 
 public final class Capsules {
 	
-	//Instantiate capsule types
-	static {
-		new BooleanCapsule();
-		new CharacterCapsule();
-		new FloatCapsule();
-		new HashCapsule();
-		new IntegerCapsule();
-		new ListCapsule();
-		new NullCapsule();
-		new StringCapsule();
-	}
-	
 	protected static Map<String, Capsule<?>> capsuleIds = new HashMap<>();
 	
 	static {

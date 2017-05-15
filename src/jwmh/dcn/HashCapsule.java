@@ -9,7 +9,12 @@ final class HashCapsule extends CollectiveCapsule<Map<?, ?>> {
 	public HashCapsule() {
 		super('{', '}', null);
 	}
-
+	
+	//instantiate capsule
+	static {
+		new HashCapsule();
+	}
+	
 	@Override
 	protected ValueEnd processList(List<Object> valueList, int terminator) {
 		int valueNumber = valueList.size();

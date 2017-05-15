@@ -8,6 +8,11 @@ final class ListCapsule extends CollectiveCapsule<List<?>> {
 		super('[', ']', null);
 	}
 	
+	//instantiate capsule
+	static {
+		new ListCapsule();
+	}
+	
 	@Override
 	protected ValueEnd processList(List<Object> valueList, int terminator) {
 	    return new ValueEnd(valueList, terminator);

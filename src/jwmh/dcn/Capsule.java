@@ -38,7 +38,7 @@ abstract class Capsule<T> {
 	protected abstract ValueEnd evaluate(String capsule);
 	
 	//a data structure containing the evaluated contents of a capsule and where in the string it ends
-	protected class ValueEnd {
+	protected final class ValueEnd {
 	    
 	    T value;
 	    int terminator;
