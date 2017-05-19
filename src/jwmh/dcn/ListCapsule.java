@@ -9,8 +9,8 @@ final class ListCapsule extends CollectiveCapsule<List<?>> {
 	}
 	
 	@Override
-	protected ValueEnd processList(List<Object> valueList, int terminator) {
-	    return new ValueEnd(valueList, terminator);
+	protected List<Object> processList(List<Object> valueList) {
+		return valueList;
 	}
 	
 }

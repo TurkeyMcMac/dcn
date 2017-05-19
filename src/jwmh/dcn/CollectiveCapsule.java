@@ -1,7 +1,11 @@
 package jwmh.dcn;
 
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 abstract class CollectiveCapsule<T> extends Capsule<T> {
 	
@@ -11,8 +15,10 @@ abstract class CollectiveCapsule<T> extends Capsule<T> {
 	
 	@SuppressWarnings("unchecked")
 	protected final ValueEnd evaluate(String capsule) {
+		//storage for variables within this scope
+		Map<Object, Object> vars = new HashMap<>();
 		//list of processed values, to be filled
-	    List<T> valueList = new ArrayList<>();
+	    List<Object> valueList = new ArrayList<>();
 	    //the position of the end of the capsule, to be determined
 	    int terminator = 0;
 	    //iterate through capsule string
@@ -23,8 +29,15 @@ abstract class CollectiveCapsule<T> extends Capsule<T> {
 	        if (subCapsule != null) {
 	            //pass sub-capsule string to sub-capsule
 	            ValueEnd subValue = (Capsule<T>.ValueEnd) subCapsule.evaluate(capsule.substring(i + 1));
-	            if (!(subCapsule instanceof CommentCapsule)) {
-	            	valueList.add(subValue.value);
+	            if (!(subCapsule instanceof Ignored)) {
+	            	if (subCapsule instanceof GetterCapsule) {
+	            		valueList.add(vars.get(subValue.value));
+	            	} else {
+	            		valueList.add(subValue.value);
+	            	}
+	            } else if (subCapsule instanceof SetterCapsule) {
+	            	AbstractMap.SimpleEntry<Object, Object> var = (SimpleEntry<Object, Object>)subValue.value;
+	            	vars.put(var.getKey(), var.getValue());
 	            }
 	            i += subValue.terminator;
 	        } else if (currentChar == capsuleBorders.get(START)) {
@@ -32,9 +45,9 @@ abstract class CollectiveCapsule<T> extends Capsule<T> {
 	        	break;
 	        }
 	    }
-	    return processList((List<Object>)valueList, terminator);
+	    return new ValueEnd(processList((List<Object>)valueList), terminator);
 	}
 	
-	protected abstract ValueEnd processList(List<Object> valueList, int terminator);
+	protected abstract T processList(List<Object> valueList);
 	
 }

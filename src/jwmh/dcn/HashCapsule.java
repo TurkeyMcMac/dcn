@@ -11,7 +11,7 @@ final class HashCapsule extends CollectiveCapsule<Map<?, ?>> {
 	}
 	
 	@Override
-	protected ValueEnd processList(List<Object> valueList, int terminator) {
+	protected Map<Object, Object> processList(List<Object> valueList) {
 		int valueNumber = valueList.size();
 		if (valueNumber % 2 != 0) {
 			throw new RuntimeException("key \"" + valueList.get(valueNumber - 1) + "\" does not have a corresponding value.");
@@ -26,7 +26,7 @@ final class HashCapsule extends CollectiveCapsule<Map<?, ?>> {
 				hash.put(key, currentValue);
 			}
 		}
-		return new ValueEnd(hash, terminator);
+		return hash;
 	}
 
 }

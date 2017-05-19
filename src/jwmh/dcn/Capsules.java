@@ -17,10 +17,12 @@ public final class Capsules {
 		new CharacterCapsule();
 		new CommentCapsule();
 		new FloatCapsule();
+		new GetterCapsule();
 		new HashCapsule();
 		new IntegerCapsule();
 		new ListCapsule();
 		new NullCapsule();
+		new SetterCapsule();
 		new StringCapsule();
 	}
 	
