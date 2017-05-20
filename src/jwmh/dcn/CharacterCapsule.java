@@ -9,7 +9,7 @@ final class CharacterCapsule extends PrimitiveCapsule<Character> {
 	@Override
 	protected Character parseContents(String contents) {
 		if (contents.length() != 1) {
-			throw new IllegalArgumentException("character capsules must contain a single character");
+			throw new IllegalContentsException("character capsules must contain a single character");
 		}
 		return contents.charAt(0);
 	}

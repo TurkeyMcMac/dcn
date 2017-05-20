@@ -11,7 +11,7 @@ final class GetterCapsule extends CollectiveCapsule<Object> {
 	@Override
 	protected Object processList(List<Object> valueList) {
 		if (valueList.size() != 1) {
-			throw new IllegalArgumentException("getters must contain only a name");
+			throw new IllegalContentsException("getters must contain only a name");
 		}
 		return valueList.get(0);
 	}
