@@ -11,19 +11,23 @@ import java.util.Set;
 
 public final class Capsules {
 	
-	//Instantiate capsule types
+	//Instantiate capsule types (must be instantiated to take effect)
 	static {
 		new BooleanCapsule();
 		new CharacterCapsule();
 		new CommentCapsule();
+		//new DivideCapsule();
 		new FloatCapsule();
 		new GetterCapsule();
 		new HashCapsule();
 		new IntegerCapsule();
 		new ListCapsule();
+		//new MinusCapsule();
 		new NullCapsule();
+		//new PlusCapsule();
 		new SetterCapsule();
 		new StringCapsule();
+		//new TimesCapsule();
 	}
 	
 	protected static Map<String, Capsule<?>> capsuleIds = new HashMap<>();
