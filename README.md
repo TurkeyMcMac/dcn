@@ -13,7 +13,7 @@ This is a parser for an inferior version of JSON that I created.
 
 `"string"`
 ### Structured Capsules
-`[list1 list2 ...]`  
+`[value1 value2 ...]`  
 
 `{key1 value1 key2 value2 ...}`
 ### Variable Capsules
