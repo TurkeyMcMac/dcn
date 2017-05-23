@@ -25,4 +25,4 @@ This is a parser for an inferior version of JSON that I created.
 
 `` `comment` `` (ignored on compilation)  
   
-Note: characters written between elements in capsules that contain multiple elements is arbitrary.
+Note: characters written between elements in capsules that contain multiple elements are arbitrary.
