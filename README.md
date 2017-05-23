@@ -23,4 +23,6 @@ This is a parser for an inferior version of JSON that I created.
 ### Miscellanious Capsules
 `_null_` inner value is arbitrary  
 
-`` `comment` `` (ignored on compilation)
+`` `comment` `` (ignored on compilation)  
+  
+Note: characters written between elements in capsules that contain multiple elements is arbitrary.
