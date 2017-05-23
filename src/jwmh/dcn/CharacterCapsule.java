@@ -1,5 +1,7 @@
 package jwmh.dcn;
 
+import jwmh.dcn.exceptions.IllegalContentsException;
+
 final class CharacterCapsule extends PrimitiveCapsule<Character> {
 
 	protected CharacterCapsule() {

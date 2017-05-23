@@ -1,6 +1,6 @@
-package jwmh.dcn;
+package jwmh.dcn.exceptions;
 
-class VariableNotFoundException extends IllegalContentsException {
+public class VariableNotFoundException extends IllegalContentsException {
 
 	/**
 	 * 
@@ -10,7 +10,7 @@ class VariableNotFoundException extends IllegalContentsException {
 	public VariableNotFoundException() {}
 
 	public VariableNotFoundException(String arg0) {
-		super(arg0);
+		super("variable '" + arg0 + "' does not exist");
 	}
 
 	public VariableNotFoundException(Throwable arg0) {

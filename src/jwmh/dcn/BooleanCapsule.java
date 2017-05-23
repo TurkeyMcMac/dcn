@@ -10,5 +10,5 @@ final class BooleanCapsule extends PrimitiveCapsule<Boolean> {
 	protected Boolean parseContents(String contents) {
 		return Boolean.valueOf(contents.trim());
 	}
-
+	
 }

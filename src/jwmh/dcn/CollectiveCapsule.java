@@ -2,6 +2,9 @@ package jwmh.dcn;
 
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
+
+import jwmh.dcn.exceptions.VariableNotFoundException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -38,7 +41,7 @@ abstract class CollectiveCapsule<T> extends Capsule<T> {
 	            			Object varValue = VARS.get(subValue.value);
 	            			valueList.add(varValue);
 	            		} else {
-	            			throw new VariableNotFoundException("variable '" + subValue.value + "' does not exist");
+	            			throw new VariableNotFoundException(subValue.value.toString());
 	            		}
 	            	} else {
 	            		valueList.add(subValue.value);

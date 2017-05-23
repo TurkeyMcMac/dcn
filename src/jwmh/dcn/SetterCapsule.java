@@ -3,11 +3,12 @@ package jwmh.dcn;
 import java.util.AbstractMap;
 import java.util.List;
 
+import jwmh.dcn.exceptions.IllegalContentsException;
+
 final class SetterCapsule extends CollectiveCapsule<AbstractMap.SimpleEntry<?, ?>> implements Ignored {
 
 	public SetterCapsule() {
 		super('$', '!', null);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

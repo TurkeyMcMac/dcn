@@ -1,6 +1,6 @@
-package jwmh.dcn;
+package jwmh.dcn.exceptions;
 
-class IllegalContentsException extends IllegalArgumentException {
+public class IllegalContentsException extends RuntimeException {
 
 	/**
 	 * 

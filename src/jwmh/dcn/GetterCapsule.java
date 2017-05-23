@@ -2,6 +2,8 @@ package jwmh.dcn;
 
 import java.util.List;
 
+import jwmh.dcn.exceptions.IllegalContentsException;
+
 final class GetterCapsule extends CollectiveCapsule<Object> {
 
 	public GetterCapsule() {

@@ -23,5 +23,5 @@ abstract class PrimitiveCapsule<T> extends Capsule<T> {
 	 	}
 		return new ValueEnd(parseContents(contents), terminator);
 	}
-
+	
 }

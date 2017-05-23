@@ -33,8 +33,6 @@ abstract class Capsule<T> {
 	protected static Map<Character, Capsule<?>> capsuleStarts = new HashMap<>();
 	static List<Capsule<?>>  capsules = new ArrayList<>();
 	
-	
-	
 	protected abstract ValueEnd evaluate(String capsule);
 	
 	//a data structure containing the evaluated contents of a capsule and where in the string it ends
