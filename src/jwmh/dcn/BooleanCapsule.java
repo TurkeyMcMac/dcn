@@ -3,7 +3,7 @@ package jwmh.dcn;
 final class BooleanCapsule extends PrimitiveCapsule<Boolean> {
 
 	protected BooleanCapsule() {
-		super('~', null, null);
+		super('?', null, null);
 	}
 	
 	@Override

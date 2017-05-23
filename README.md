@@ -5,7 +5,7 @@ This is a parser for an inferior version of JSON that I created.
 ### Primitive Capsules
 `#integer;`
 `%float;`
-`~boolean;`
+`?boolean;`
 `'character'`
 `"string"`
 ### Structured Capsules
