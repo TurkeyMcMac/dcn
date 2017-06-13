@@ -1,9 +1,6 @@
 package jwmh.dcn;
 
 import java.util.Map;
-
-import jwmh.dcn.exceptions.NoCorrespondingCapsuleException;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;

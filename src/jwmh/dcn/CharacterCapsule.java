@@ -1,7 +1,5 @@
 package jwmh.dcn;
 
-import jwmh.dcn.exceptions.IllegalContentsException;
-
 /**
  * This capsule type contains
  * character values.

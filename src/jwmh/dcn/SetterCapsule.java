@@ -2,8 +2,6 @@ package jwmh.dcn;
 
 import java.util.AbstractMap;
 import java.util.List;
-
-import jwmh.dcn.exceptions.IllegalContentsException;
 /**
  * This capsule type sets variables
  * to certain values. It is ignored

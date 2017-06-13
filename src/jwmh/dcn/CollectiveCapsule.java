@@ -2,9 +2,6 @@ package jwmh.dcn;
 
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
-
-import jwmh.dcn.exceptions.VariableNotFoundException;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;

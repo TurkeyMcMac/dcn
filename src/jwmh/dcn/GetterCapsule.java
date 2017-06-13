@@ -2,8 +2,6 @@ package jwmh.dcn;
 
 import java.util.List;
 
-import jwmh.dcn.exceptions.IllegalContentsException;
-
 /**
  * This capsule type is
  * evaluated as the value
