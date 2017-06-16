@@ -9,7 +9,9 @@ package jwmh.dcn;
  * Warning: do not try to
  * use capsules which will
  * be ignored on compilation
- * as variable keys or values.
+ * as variable keys or values;
+ * an IllegalContentsException
+ * will be thrown.
  * 
  * @author jude
  *
