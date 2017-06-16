@@ -1,6 +1,8 @@
 package jwmh.dcn;
 
 import java.io.*;
+import java.util.function.Consumer;
+
 import static java.util.AbstractMap.SimpleEntry;
 
 /**
@@ -49,7 +51,8 @@ public final class CapsuleReader {
 	 * Because capsules can have a
 	 * value of null, one must iterate
 	 * through a sequence of capsules
-	 * something like this:
+	 * with the whileReading method, or
+	 * if one wants, like this:
 	 * <pre>
 	 * {@code
 	 * CapsuleReader reader = new CapsuleReader(
@@ -89,6 +92,24 @@ public final class CapsuleReader {
 	    }
 	    open = false;
 		return null;
+	}
+	
+	/**
+	 * Reads every capsule and carries
+	 * out a specified consumer function
+	 * that accepts each as a parameter.
+	 * 
+	 * @param toCarryOut the consumer to be carried out
+	 * @throws IOException
+	 */
+	public void whileReading(Consumer<Object> toCarryOut) throws IOException {
+		while (true) {
+			Object read = readCapsule();
+			if (open)
+				toCarryOut.accept(read);
+			else
+				break;
+		}
 	}
 	
 	/**
