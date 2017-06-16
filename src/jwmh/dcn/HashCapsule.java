@@ -12,10 +12,10 @@ import java.util.HashMap;
  * @author jude
  *
  */
-final class HashCapsule extends WritableCollectiveCapsule<Map<?, ?>> {
+final class HashCapsule extends LongCollectiveCapsule<Map<?, ?>> {
 
 	public HashCapsule() {
-		super('{', '}', null);
+		super('{', '}');
 	}
 	
 	/*
@@ -56,12 +56,12 @@ final class HashCapsule extends WritableCollectiveCapsule<Map<?, ?>> {
 
 	@Override
 	protected String stringifyItems(Object anObject) {
-		String stringified = "";
+		StringBuffer stringified = new StringBuffer();
 		for (Object o : ((Map<?, ?>)anObject).keySet()) {
-			stringified += WritableCollectiveCapsule.tabs + Capsule.doStringify(o);
-			stringified += ' ' + Capsule.doStringify(((Map<?, ?>)anObject).get(o)) + '\n';
+			stringified.append(LongCollectiveCapsule.tabs + Capsule.doStringify(o));
+			stringified.append(' ' + Capsule.doStringify(((Map<?, ?>)anObject).get(o)) + '\n');
 		}
-		return stringified;
+		return stringified.toString();
 	}
 	
 }

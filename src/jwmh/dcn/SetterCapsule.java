@@ -22,7 +22,7 @@ import java.util.List;
 final class SetterCapsule extends CollectiveCapsule<AbstractMap.SimpleEntry<?, ?>> implements Ignored {
 
 	public SetterCapsule() {
-		super('$', '!', null);
+		super('$', '!');
 	}
 
 	@Override
@@ -36,12 +36,13 @@ final class SetterCapsule extends CollectiveCapsule<AbstractMap.SimpleEntry<?, ?
 
 	@Override
 	protected String stringify(Object anObject) {
-		return null;
+		Setter setter = (Setter)anObject;
+		return START + Capsule.doStringify(setter.key) + ' ' + Capsule.doStringify(setter.value) + FINISH;
 	}
 
 	@Override
 	protected boolean matches(Object anObject) {
-		return false;
+		return anObject instanceof Setter;
 	}
 	
 }

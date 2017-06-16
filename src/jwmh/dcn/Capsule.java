@@ -2,8 +2,8 @@ package jwmh.dcn;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.Reader;
 
 /**
  * This class is the parent
@@ -22,7 +22,6 @@ abstract class Capsule<T> {
 
 	final char START;
 	final char FINISH;
-	final String SELECTOR;
 	
 	/**
 	 * Constructs a capsule that
@@ -33,22 +32,11 @@ abstract class Capsule<T> {
 	 * (this value defaults to ';' when left as null)
 	 * @param selector the name used to select this capsule type when reading capsules
 	 */
-	protected Capsule(Character start, Character finish, String selector) {
+	protected Capsule(Character start, Character finish) {
 		START = start;
-		if (finish == null) {
-			FINISH = ';';
-		} else {
-			FINISH = finish;
-		}
-		if (selector == null) {
-			String capsuleName = getClass().getSimpleName().toLowerCase();
-			SELECTOR = capsuleName.substring(0, capsuleName.length() - 7);
-		} else {
-			SELECTOR = selector;
-		}
+		FINISH = finish;
 		capsuleBorders.put(start, finish);
 		capsuleStarts.put(start, this);
-		capsules.add(this);
 	}
 	/**
 	 * A map from the starts of capsules to the ends.
@@ -57,11 +45,7 @@ abstract class Capsule<T> {
 	/**
 	 * A map from the starts of capsules to the capsules themselves.
 	 */
-	protected static Map<Character, Capsule<?>> capsuleStarts = new HashMap<>();
-	/**
-	 * A list of all capsules.
-	 */
-	static List<Capsule<?>>  capsules = new ArrayList<>();
+	static Map<Character, Capsule<?>> capsuleStarts = new HashMap<>();
 	
 	/**
 	 * Stringifies an object
@@ -73,7 +57,7 @@ abstract class Capsule<T> {
 	 * @throws NoCorrespondingCapsuleException
 	 */
 	static String doStringify(Object anObject) throws NoCorrespondingCapsuleException {
-		for (Capsule<?> c : capsules) {
+		for (Capsule<?> c : capsuleStarts.values()) {
 			if (c.matches(anObject)) {
 				return c.stringify(anObject);
 			}
@@ -88,7 +72,8 @@ abstract class Capsule<T> {
 	 * @return the value corresponding to the string along with where in the string
 	 * the end of the capsule is
 	 */
-	protected abstract ValueEnd evaluate(String stringified);
+	protected abstract T evaluate(Reader reader)
+		throws IOException;
 	
 	/**
 	 * Stringifies a certain type as a capsule.
@@ -105,33 +90,5 @@ abstract class Capsule<T> {
 	 * @return whether or not this object matches this capsule's contained type
 	 */
 	protected abstract boolean matches(Object anObject);
-	
-	/**
-	 * A class holding the value
-	 * of an object contained
-	 * within a capsule string
-	 * along with where in the
-	 * string the capsule ends.
-	 * 
-	 * @author jude
-	 *
-	 */
-	protected final class ValueEnd {
-	    
-	    T value;
-	    int terminator;
-	    
-	    /**
-	     * Constructs a ValueEnd.
-	     * 
-	     * @param value the value of the object represented
-	     * @param terminator the place at which the capsule ends
-	     */
-	    ValueEnd(T value, int terminator) {
-	        this.value = value;
-	        this.terminator = terminator + 1;
-	    }
-	    
-	}
 	
 }

@@ -14,7 +14,7 @@ import java.util.List;
 final class GetterCapsule extends CollectiveCapsule<Object> {
 
 	public GetterCapsule() {
-		super('^', '!', null);
+		super('^', '!');
 	}
 	
 	@Override
@@ -22,17 +22,22 @@ final class GetterCapsule extends CollectiveCapsule<Object> {
 		if (valueList.size() != 1) {
 			throw new IllegalContentsException("getters must contain only a name");
 		}
-		return valueList.get(0);
+		Object key = valueList.get(0);
+		Object value = VARS.get(key);
+		if (VARS.containsKey(key)) //variable exists
+			return value;
+		else //variable does not exist
+			throw new VariableNotFoundException(key.toString());
 	}
 	
 	@Override
 	protected String stringify(Object anObject) {
-		return null;
+		return START + Capsule.doStringify(((Getter)anObject).variable) + FINISH;
 	}
 
 	@Override
 	protected boolean matches(Object anObject) {
-		return false;
+		return anObject instanceof Getter;
 	}
 	
 }
