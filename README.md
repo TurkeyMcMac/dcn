@@ -16,6 +16,8 @@ This is a parser for an inferior version of JSON that I created.
 `[value1 value2 ...]`  
 
 `{key1 value1 key2 value2 ...}`
+
+`&stringOrChar1 stringOrChar2 ...~` for creating prettier long strings
 ### Variable Capsules
 `$variableKey value!` variable setter capsule  (ignored as part of data structure on compilation)  
 
